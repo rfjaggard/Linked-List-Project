@@ -61,13 +61,32 @@ class SinglyLinkedList {
             return temp;
         }
 
-        
+        // Write your hypothesis on the time complexity of this method here       
     }
 
     removeFromTail() {
-        // Remove node at tail
+        if(!this.head) return undefined;
 
-        // Your code here 
+        else {
+
+            if(!this.head.next){
+                let tmp = this.head;
+                this.head = null;
+                this.length--;
+                return tmp;
+            }
+
+            let curr = this.head;
+            
+            while(curr.next.next){
+                curr = curr.next;
+            }
+
+            let tmp = curr.next;
+            curr.next = null;
+            this.length--;
+            return tmp;
+        }
 
         // Write your hypothesis on the time complexity of this method here
     }
