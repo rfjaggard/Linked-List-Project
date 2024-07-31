@@ -35,10 +35,17 @@ class DoublyLinkedList {
     }
 
     addToTail(val) {
-        // Add node of val to tail of linked list
+        const newNode = new DoublyLinkedNode(val);
 
-        // Your code here 
-
+        if (!this.length) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        }
+        this.length++;
         // Write your hypothesis on the time complexity of this method here
     }
 
@@ -59,17 +66,19 @@ class DoublyLinkedList {
     }
 
     peekAtHead() {
-        // Return value of head node
+        if (!this.length) return undefined;
+        return this.head.value;
 
-        // Your code here 
+        
 
         // Write your hypothesis on the time complexity of this method here
     }
 
     peekAtTail() {
-        // Return value of tail node
+        if (!this.length) return undefined;
+        return this.tail.value;
 
-        // Your code here 
+        
 
         // Write your hypothesis on the time complexity of this method here
     }
