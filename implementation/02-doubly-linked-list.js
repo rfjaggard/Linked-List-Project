@@ -50,18 +50,38 @@ class DoublyLinkedList {
     }
 
     removeFromHead() {
-        // Remove node at head
+        if(!this.head) return undefined;
 
-        // Your code here 
+        const remove = this.head.value
 
+        if(this.head === this.tail){
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = this.head.next;
+            this.head.prev = null;
+        }
+        this.length--;
+        return remove;
         // Write your hypothesis on the time complexity of this method here
     }
 
     removeFromTail() {
-        // Remove node at tail
+        if(!this.head) return undefined;
 
-        // Your code here 
+        const remove = this.tail.value;
 
+        if(this.head === this.tail){
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+
+        this.length--;
+        return remove;
+        
         // Write your hypothesis on the time complexity of this method here
     }
 
@@ -69,16 +89,12 @@ class DoublyLinkedList {
         if (!this.length) return undefined;
         return this.head.value;
 
-        
-
         // Write your hypothesis on the time complexity of this method here
     }
 
     peekAtTail() {
         if (!this.length) return undefined;
         return this.tail.value;
-
-        
 
         // Write your hypothesis on the time complexity of this method here
     }
